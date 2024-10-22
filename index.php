@@ -12,6 +12,15 @@ try {
     $router = new \Bramus\Router\Router();
 
     // Define routes
+    // Define route for customers
+    // Route to display the edit form
+    $router->get('/customers/{id}/edit', '\App\Controllers\CustomerController@edit');
+
+// Route to handle the form submission and update the customer
+    $router->post('/customers/{id}', '\App\Controllers\CustomerController@update');
+
+    $router->get('/customers/{id}', '\App\Controllers\CustomerController@show');
+    $router->get('/customers', '\App\Controllers\CustomerController@list');
     $router->get('/', '\App\Controllers\HomeController@index');
     $router->get('/suppliers', '\App\Controllers\SupplierController@list');
     $router->get('/suppliers/{id}', '\App\Controllers\SupplierController@single');
